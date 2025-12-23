@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotDone | Maintenance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-red: #ff3b30;
+            --sub-text: #666666;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Background Effects */
+        .grid-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+        }
+
+        .massive-text {
+            font-size: clamp(50px, 15vw, 150px);
+            line-height: 0.8;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .status-bar {
+            border: 2px solid var(--text-color);
+            background: transparent;
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .pulse {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-red);
+            border-radius: 50%;
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(255, 59, 48, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+        }
+
+        .load-container {
+            width: 350px;
+            height: 4px;
+            background: #eeeeee;
+            position: relative;
+            overflow: hidden;
+            margin-top: 3rem;
+            border-radius: 10px;
+        }
+
+        .load-bar {
+            position: absolute;
+            left: 0; top: 0;
+            height: 100%;
+            width: 60%;
+            background: var(--accent-red);
+            animation: loading 2.5s infinite ease-in-out;
+        }
+
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+
+        .red-accent-text { color: var(--accent-red); }
+
+        /* Brand Info Section */
+        .brand-section {
+            border-top: 1px solid #eeeeee;
+            padding: 6rem 2rem;
+            margin-top: 4rem;
+            background: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-pattern"></div>
+
+    <!-- Main Maintenance View -->
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <main class="text-center px-6 py-20">
+            <div class="status-bar mb-16">
+                <span class="pulse"></span>
+                <span class="mono text-[11px] font-black uppercase tracking-[0.5em]">System Maintenance Active</span>
+            </div>
+
+            <h1 class="massive-text mb-10">
+                SYSTEM<br><span class="red-accent-text">OFFLINE</span>
+            </h1>
+
+            <p class="text-2xl md:text-4xl font-light text-gray-500 max-w-4xl mx-auto leading-tight tracking-tight">
+                We are currently restructuring the <span class="text-black font-black">Neural Network</span>. <br>
+                Core updates in progress to ensure total technical dominance.
+            </p>
+
+            <div class="flex flex-col items-center mt-12">
+                <div class="load-container">
+                    <div class="load-bar"></div>
+                </div>
+                <div class="mono text-[11px] mt-6 font-bold text-black opacity-40 uppercase tracking-[0.6em]">RECALIBRATING CORE LOGIC... 82%</div>
+            </div>
+
+            <div class="mt-24 flex justify-center gap-12 text-[11px] font-black uppercase tracking-[0.5em] text-black">
+                <span class="border-b-2 border-black pb-1">BotDone Architecture</span>
+                <span class="opacity-30">Coming Back Q1 2025</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Brand About Section -->
+    <section class="brand-section">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+            <div class="space-y-6">
+                <h2 class="text-4xl font-black uppercase tracking-tighter">About BotDone</h2>
+                <div class="h-1 w-20 bg-red-600"></div>
+                <p class="text-xl text-gray-600 leading-relaxed font-light">
+                    BotDone is not just an automation tool; it is a <span class="text-black font-bold">Neural Engine</span> designed to redefine operational efficiency. We specialize in building autonomous architectures that empower global enterprises.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="mono text-xs font-black uppercase tracking-widest text-red-600 mb-2">The Mission</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        To eliminate manual friction through high-frequency neural logic and predictive automation.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="mono text-xs font-black uppercase tracking-widest text-red-600 mb-2">The Tech</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        Built on the Ghost-Protocol stack, ensuring zero-latency decision making across distributed nodes.
+                    </p>
+                </div>
+                <div class="sm:col-span-2 pt-6 border-t border-gray-200">
+                    <p class="mono text-[10px] text-gray-400 uppercase tracking-[0.2em]">
+                        Dominating the digital frontier with intelligence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="py-10 text-center border-t border-gray-100">
+        <p class="mono text-[10px] font-bold text-black opacity-20 uppercase tracking-[0.5em]">
+            © 2025 BotDone Architecture Systems Global. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
